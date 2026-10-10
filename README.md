@@ -4,7 +4,7 @@ Buksan lang ang `index.html` sa browser (walang install o server na kailangan).
 
 - **Customer site:** index.html, shop.html, product.html
 - **Admin (walang link sa public site):** buksan mo mismo ang `admin-login.html` sa URL, hal. `yoursite.com/admin-login.html`
-  - Demo login: `admin` / `ethereal2026` (palitan sa `js/admin.js`, `CREDENTIALS`)
+  - Login (local mode): username `ethereal` (palitan ang password sa `js/admin.js`, `CREDENTIALS`)
 - **Palitan ang images:** ilagay sa `assets/images/` at i-edit ang image path sa Admin → Products (o mag-upload doon mismo).
 - **Data:** nasa localStorage ng browser (`ethereal_products`, `ethereal_settings`, `ethereal_theme`). Reset: Admin → Products → Reset Sample Data.
 
