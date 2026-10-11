@@ -1,29 +1,22 @@
 # Ethereal Perfumes — Inventory Website
 
-Buksan lang ang `index.html` sa browser (walang install o server na kailangan).
+Walang demo mode na. Lahat ng products, stock at theme ay naka-save sa **Supabase** (libre), kaya pareho ang nakikita ng lahat ng customer sa kahit anong device, at hindi nawawala pag nag-refresh.
 
 - **Customer site:** index.html, shop.html, product.html
-- **Admin (walang link sa public site):** buksan mo mismo ang `admin-login.html` sa URL, hal. `yoursite.com/admin-login.html`
-  - Login (local mode): username `ethereal` (palitan ang password sa `js/admin.js`, `CREDENTIALS`)
-- **Palitan ang images:** ilagay sa `assets/images/` at i-edit ang image path sa Admin → Products (o mag-upload doon mismo).
-- **Data:** nasa localStorage ng browser (`ethereal_products`, `ethereal_settings`, `ethereal_theme`). Reset: Admin → Products → Reset Sample Data.
+- **Admin (walang link sa public site):** `yoursite.com/admin-login.html` — email + password ng admin mo sa Supabase.
 
-## Online database setup (para makita ng LAHAT ng customer ang stock)
+## Setup (isang beses lang)
 
-Gumagamit ng **Supabase** (libre ang free plan). Isang beses lang ito gagawin:
+1. supabase.com → **New project**.
+2. **SQL Editor → New query** → i-paste ang laman ng `supabase-setup.sql` → **Run**.
+3. **Authentication → Users → Add user → Create new user**: email at password mo bilang admin (i-check ang "Auto Confirm User").
+4. **Authentication → Sign In / Providers → Email**: i-**OFF** ang "Allow new users to sign up".
+5. **Project Settings → API**: kopyahin ang **Project URL** at **anon public** (o publishable) key.
+6. Ilagay sa `js/config.js`, i-save, i-push/i-deploy ulit sa Vercel.
+7. Buksan ang `/admin-login.html` at mag-sign in. Wala nang sample products — i-add mo na mismo ang mga totoong perfume.
 
-1. Pumunta sa supabase.com → **New project** (maglagay ng pangalan at database password, piliin ang pinakamalapit na region).
-2. Sa project: **SQL Editor** → **New query** → i-paste ang laman ng `supabase-setup.sql` → **Run**.
-3. **Authentication → Users → Add user → Create new user**: ilagay ang email at password mo bilang admin. (I-check ang "Auto Confirm User".)
-4. **Authentication → Sign In / Providers → Email**: i-**OFF** ang "Allow new users to sign up" (importante, para ikaw lang ang makakapag-edit).
-5. **Project Settings → API**: kopyahin ang **Project URL** at ang **anon public** key (o "publishable" key).
-6. Buksan ang `js/config.js` at i-paste ang dalawa. I-save.
-7. I-upload ang BUONG folder (kasama ang admin) sa hosting mo. Buksan ang `/admin-login.html` at mag-sign in gamit ang email/password sa step 3.
-
-Pagka-login mo sa unang beses, awtomatikong maa-upload ang sample catalog sa database. Pagkatapos, lahat ng pagbabago sa Admin (stock, presyo, bagong perfume, photos) ay naka-save online at lalabas sa customers sa loob ng ~30 segundo, o agad pag nag-refresh sila.
-
-Kapag walang laman ang `js/config.js`, babalik ang site sa local demo mode (data sa browser lang, at yung lumang demo login).
-
-Paalala: ang admin page ay nasa public site pa rin (walang link, pero kung alam ng iba ang URL ay makikita nila ang login page). Ligtas pa rin ito dahil ang database mismo ang tumatanggi sa pag-edit ng hindi naka-sign in.
-
-Paalala (lumang demo mode): frontend-only demo ito at hindi secure ang admin login. Para sa maraming customer sa iba't ibang device, kailangan ng backend, shared database, at tunay na authentication.
+## Paano gumagana
+- Pag nag-add/edit/delete ka o nagbago ng stock/theme, lalabas ang "Saved online ✓" sa admin. Ibig sabihin nasa database na at makikita na ng customers (agad pag nag-refresh sila, o sa loob ng ~30 segundo).
+- Kung walang laman ang `js/config.js`, hindi gagana ang admin login at walang lalabas na products (may babalang "Database not configured").
+- Ligtas ang public anon key: ang database rules (RLS) mismo ang tumatanggi sa pag-edit ng hindi naka-sign in.
+- **Palitan ang images:** sa Admin → Products, mag-upload ng photo (napupunta sa Supabase Storage).
