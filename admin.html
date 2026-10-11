@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard — Ethereal Perfumes</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/theme.js"></script>
+</head>
+<body data-page="admin">
+  <div class="admin-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="logo" href="index.html">Ethereal<small>Admin</small></a>
+      <button class="side-btn active" data-view="dashboard" type="button">&#9632;&nbsp; Dashboard</button>
+      <button class="side-btn" data-view="products" type="button">&#9670;&nbsp; Products</button>
+      <button class="side-btn" data-view="stock" type="button">&#9650;&nbsp; Stock</button>
+      <button class="side-btn" data-view="theme" type="button">&#9679;&nbsp; Theme</button>
+      <div class="spacer"></div>
+      <a class="side-btn" href="index.html" target="_blank" rel="noopener">&#8599;&nbsp; View Website</a>
+      <button class="side-btn" id="logout-btn" type="button">&#10006;&nbsp; Log out</button>
+    </aside>
+
+    <div class="admin-main">
+      <div class="admin-top">
+        <button class="icon-btn menu-btn" id="side-toggle" type="button" aria-label="Open menu">&#9776;</button>
+        <h1 id="view-title">Dashboard</h1>
+        <span class="sync" id="sync-status" role="status" aria-live="polite"></span>
+      </div>
+
+      <!-- DASHBOARD -->
+      <section class="view" id="view-dashboard">
+        <div class="stats">
+          <div class="stat"><span>Total Products</span><b id="stat-total">0</b></div>
+          <div class="stat"><span>Total Stock Units</span><b id="stat-units">0</b></div>
+          <div class="stat warn"><span>Low Stock Products</span><b id="stat-low">0</b></div>
+          <div class="stat bad"><span>Out of Stock Products</span><b id="stat-out">0</b></div>
+        </div>
+        <div class="panels">
+          <div class="panel"><h3>Low Stock</h3><div class="panel-list" id="low-list"></div></div>
+          <div class="panel"><h3>Out of Stock</h3><div class="panel-list" id="out-list"></div></div>
+        </div>
+        <p class="muted" style="margin-top:1.4rem">Low-stock threshold: <b id="threshold-label"></b> units or fewer. Change it in the Stock tab.</p>
+      </section>
+
+      <!-- PRODUCTS -->
+      <section class="view hidden" id="view-products">
+        <div class="admin-toolbar">
+          <input class="grow" type="search" id="prod-search" placeholder="Search products by ID, name or brand…">
+          <button class="btn" id="add-product" type="button">+ Add Product</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Image</th><th>ID</th><th>Perfume</th><th>Category</th><th>Price</th><th>Size</th><th>Stock</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="product-rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STOCK -->
+      <section class="view hidden" id="view-stock">
+        <div class="threshold">
+          <div class="field"><label for="threshold-input">Low-stock threshold</label><input type="number" id="threshold-input" min="0" step="1"></div>
+          <button class="btn" id="save-threshold" type="button">Save Threshold</button>
+          <p class="muted" style="flex:1;min-width:220px">Products with stock at or below this number show as <b>Low Stock</b>. Zero stock is always <b>Out of Stock</b>.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Image</th><th>Perfume</th><th>Status</th><th>Stock Quantity</th></tr></thead>
+            <tbody id="stock-rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- THEME -->
+      <section class="view hidden" id="view-theme">
+        <div class="theme-layout">
+          <div class="panel">
+            <h3>Preset Themes</h3>
+            <div class="presets" id="presets"></div>
+            <h3>Custom Colors</h3>
+            <div id="color-fields"></div>
+            <div class="theme-actions">
+              <button class="btn" id="save-theme" type="button">Save Theme</button>
+              <button class="btn btn-ghost" id="reset-theme" type="button">Reset to Default</button>
+            </div>
+            <p class="muted" style="margin-top:1rem">Changes show instantly in the preview. Press <b>Save Theme</b> to apply them to the whole website.</p>
+          </div>
+          <div class="preview theme-scope" id="theme-preview">
+            <div class="preview-label">Live Preview</div>
+            <div class="pv-nav"><span class="logo">Ethereal</span><span>Home · About · Collection</span></div>
+            <div class="pv-hero">
+              <p class="eyebrow">Fine Fragrance</p>
+              <h2 style="margin-top:.6rem">ETHEREAL <em>ESSENCE</em></h2>
+              <p>Rare ingredients, deep amber and quiet luxury.</p>
+              <span class="btn btn-sm">Explore Collection</span>
+            </div>
+            <div class="pv-cards">
+              <div class="pv-card"><div class="pic"></div><b>Noir Éternel</b><small>₱6,800</small><br><span class="badge in">In Stock</span></div>
+              <div class="pv-card"><div class="pic"></div><b>Golden Hour</b><small>₱4,800</small><br><span class="badge low">Low Stock</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div id="modal-root"></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="js/config.js"></script>
+  <script src="js/cloud.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

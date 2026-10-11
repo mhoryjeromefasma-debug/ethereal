@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" role="img" aria-label="Perfume bottle placeholder">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="55%" r="65%"><stop offset="0" stop-color="#ff9c3c" stop-opacity=".32"/><stop offset=".55" stop-color="#14110d"/><stop offset="1" stop-color="#050505"/></radialGradient>
+    <linearGradient id="lq" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c8742a"/><stop offset="1" stop-color="#2a1006"/></linearGradient>
+    <linearGradient id="hl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".02"/><stop offset=".18" stop-color="#fff" stop-opacity=".38"/><stop offset=".3" stop-color="#fff" stop-opacity=".02"/><stop offset=".78" stop-color="#fff" stop-opacity=".02"/><stop offset=".9" stop-color="#fff" stop-opacity=".18"/><stop offset="1" stop-color="#fff" stop-opacity=".02"/></linearGradient>
+    <linearGradient id="gl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#cfcfcf" stop-opacity=".5"/><stop offset=".5" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#9a9a9a" stop-opacity=".5"/></linearGradient>
+    <linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e39a"/><stop offset=".5" stop-color="#d4af37"/><stop offset="1" stop-color="#8a6a1c"/></linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <radialGradient id="floor"><stop offset="0" stop-color="#ff9c3c" stop-opacity=".5"/><stop offset="1" stop-color="#ff9c3c" stop-opacity="0"/></radialGradient>
+    <mask id="fm" maskUnits="userSpaceOnUse" x="0" y="560" width="600" height="190"><rect x="0" y="560" width="600" height="190" fill="url(#fg)"/></mask>
+  </defs>
+  <rect width="600" height="750" fill="url(#bg)"/>
+  <polygon points="255,0 345,0 520,560 80,560" fill="url(#beam)"/>
+  <ellipse cx="300" cy="562" rx="230" ry="22" fill="url(#floor)"/>
+  <line x1="60" x2="540" y1="560" y2="560" stroke="#ff9c3c" stroke-opacity=".25"/>
+  <defs><g id="bt">
+    <rect x="240" y="280" width="120" height="280" rx="14" fill="url(#lq)" stroke="#ff9c3c" stroke-opacity=".6" stroke-width="2"/>
+    <rect x="240" y="280" width="120" height="280" rx="14" fill="url(#hl)"/>
+    <rect x="282" y="255" width="36" height="26" fill="url(#gl)"/>
+    <rect x="265" y="165" width="70" height="92" rx="6" fill="url(#gd)"/>
+    <rect x="271" y="171" width="6" height="80" rx="3" fill="#fff" fill-opacity=".35"/>
+    <rect x="255" y="400" width="90" height="80" rx="3" fill="#0b0b0b" fill-opacity=".55" stroke="#d4af37" stroke-opacity=".7"/>
+    <text x="300" y="442" text-anchor="middle" font-family="Times New Roman,Times,serif" font-size="11" letter-spacing="1.5" fill="#d4af37">ETHEREAL</text>
+    <line x1="273" x2="327" y1="454" y2="454" stroke="#d4af37" stroke-opacity=".6"/>
+  </g></defs>
+  <g mask="url(#fm)"><g opacity=".4" transform="translate(0,1120) scale(1,-1)"><use href="#bt"/></g></g>
+  <use href="#bt"/>
+</svg>

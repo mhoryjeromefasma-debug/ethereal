@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Login — Ethereal Perfumes</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/theme.js"></script>
+</head>
+<body data-page="admin-login">
+  <main class="login-page">
+    <div class="login-card" id="login-card">
+      <a class="logo" href="index.html">Ethereal<small>Perfumes</small></a>
+      <h1>Admin Access</h1>
+      <p>Sign in to manage products, stock and theme.</p>
+      <form id="login-form" autocomplete="off">
+        <div><label for="username">Username</label><input id="username" type="text" required autofocus></div>
+        <div><label for="password">Password</label><input id="password" type="password" required></div>
+        <p class="form-error" id="login-error" role="alert"></p>
+        <button class="btn btn-block" type="submit">Sign In</button>
+      </form>
+      <p class="demo-note" id="demo-note"><a href="index.html" class="link-arrow" style="display:inline-block;margin-top:.8rem">&larr; Back to website</a></p>
+    </div>
+  </main>
+  <script src="js/config.js"></script>
+  <script src="js/cloud.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
